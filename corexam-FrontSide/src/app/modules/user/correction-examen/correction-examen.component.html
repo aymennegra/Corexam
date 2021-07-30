@@ -1,0 +1,50 @@
+<style>
+    .viewerr {
+      height: 50%;
+      margin: 0px 300px 0px 300px ;
+    }
+  </style>
+  <div class="page">
+    <div class="row">
+      <div class="column" style="background-color:rgb(255, 255, 255);margin-left: 2%;margin-top: 2%;">
+
+
+       <app-bareme [quest] = "questionSelected"  (newItemEvent)="addNoteExam($event)" ></app-bareme>
+
+        <button type="button" style="margin-left: 20%;" class="btn btn-secondary" (click)="updateExamen()" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">
+            <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z" />
+          </svg>
+        </button>
+
+      </div>
+      <div class="column2" style="background-color:rgb(255, 255, 255);margin-left: 3%;">
+        <div #viewer class="displayed" style="height: 225%;"></div>
+      </div>
+     
+      <div style="margin-left: auto;" class="column3" style="background-color:rgb(255, 255, 255);">
+        <table id="customers">
+          <tr>
+            <th>Question</th>
+            <th>Note</th>
+            <th>bareme</th>
+            <th>Totale</th>
+          </tr>
+
+          <tr *ngFor="let quest of questions">
+            <td (click)="switchquestion(quest)" href="#" type="button" class="btn btn-info">{{quest.qName}}</td>
+            <td >{{quest.qMark}}</td>
+            <td>{{quest.qBarem}}</td>
+            <td></td>
+          </tr>
+          <tr >
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{totaleNote}}</td>
+          </tr>
+  
+        </table>
+      </div>
+    </div>
+  </div>

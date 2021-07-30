@@ -1,0 +1,62 @@
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+
+    <a  routerLink="{{where}}" class="navbar-brand">Corexam</a>
+    <div  class="navbar-nav mr-auto">
+      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+        <li class="nav-item">
+          <a  *ngIf="!isLoggedIn" class="nav-link" routerLink="register">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a  *ngIf="!isLoggedIn" class="nav-link" routerLink="login">Login</a>
+        </li>
+      </ul>
+
+    <ul *ngIf="isLoggedIn" class="navbar-nav mr-5" >
+      <li class="nav-item">
+        <a routerLink="{{where}}/profile" *ngIf= "isLoggedIn"  class="nav-link ml-5" >{{username}}</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" *ngIf= "isLoggedIn" (click)="logout()">LogOut</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="{{where}}/add-examen"  class="nav-link" *ngIf= "isLoggedIn">Add</a>
+      </li>
+      <li  class="nav-item ml-12">
+        <a routerLink="{{where}}/examens" class="nav-link" *ngIf= "isLoggedIn">Exams</a>
+      </li>
+      <li  class="nav-item ml-12">
+        <a routerLink="{{where}}/manage" class="nav-link" *ngIf= "isLoggedIn">Manage</a>
+      </li>
+    </ul>
+
+    </div>
+
+    <div *ngIf="isLoggedIn" class="dropdown" mdbDropdown>
+
+      <button mdbDropdownToggle mdbBtn color="primary" class="dropdown-toggle waves-light" type="button"
+        mdbWavesEffect>
+        changer d'espace
+      </button>
+
+      <div *ngIf=" roles?.length > 1 ;else other_content">
+       <div class="dropdown-menu dropdown-primary" >
+        <a class="dropdown-item"  *ngFor="let role of roles"  (click)="changerEspace(role)" >{{role}}</a>
+      </div>
+    </div>
+
+    <ng-template #other_content>
+
+    </ng-template>
+
+
+    </div>
+  </nav>
+  <div class="container mt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
+

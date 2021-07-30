@@ -1,0 +1,74 @@
+<div>
+    <div class="submit-form" *ngIf="!show">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="className">className</label>
+          <input
+            type="text"
+            class="form-control"
+            id="className"
+            required
+            [(ngModel)]="examen.className"
+            name="className"
+          />
+        </div>
+        <div class="form-group">
+            <label for="subject">subject</label>
+            <input
+              type="text"
+              class="form-control"
+              id="subject"
+              required
+              [(ngModel)]="examen.subject"
+              name="subject"
+            />
+          </div>
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input
+            type="datetime"
+            class="form-control"
+            id="date"
+            required
+            [(ngModel)]="examen.date"
+            name="date"
+          />
+        </div>
+     
+        </div>
+        <div class="form-group">
+          <label for="description">Questions Number</label>
+          <input
+            type='number'
+            class="form-control"
+            id="questionNbr"
+            required
+            [(ngModel)]="examen.questionNbr"
+            name="questionNbr"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Total Mark</label>
+          <input
+            type='number'
+            class="form-control"
+            id="totalMark"
+            required
+            [(ngModel)]="examen.totalMark"
+            name="totalMark"
+          />
+        </div>
+  
+        <button (click)="show=true" class="btn btn-success">Next</button>
+      </div>
+  
+  
+      <div class="submit-form" *ngIf="show">
+        <app-questions-for-exam [examen]="examen"></app-questions-for-exam>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Examen was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newExamen()">Add</button>
+  </div>
+  

@@ -1,0 +1,55 @@
+<div *ngIf="!toggle">
+<div class="form-group" *ngFor="let q of questions; let i = index">
+  <!---
+    <label for="description">Q{{i+1}}:</label>
+   
+    <input
+      type='number'
+      class="form-control"
+      required
+      [(ngModel)]="questions[i]"
+      name="totalMark"
+      placeholder=""
+    />
+    
+   -->
+  <mat-form-field class="example-full-width">
+    <input
+      matInput
+      type="number"
+      type="number"
+      class="form-control"
+      required
+      [(ngModel)]="questions[i]"
+      name="totalMark"
+      placeholder="Q{{ i + 1 }}:"
+    />
+  </mat-form-field>
+
+
+  
+</div>
+</div>
+
+<app-response-pdf-for-exam  *ngIf="toggle" [examen]="examen" ></app-response-pdf-for-exam>
+
+
+
+<!---
+<div class="form-group" *ngFor="let q of questions; let i = index">
+  <mat-form-field class="example-full-width">
+    <input
+      matInput
+      type="text"
+      class="form-control"
+      id="responsePDF"
+      required
+      [(ngModel)]="examen.responsePDF"
+      name="responsePDF"
+      placeholder="Response PDF"
+    />
+  </mat-form-field>
+</div>
+-->
+
+<button (click)="next()" *ngIf="!toggle" class="btn btn-success">Next</button>

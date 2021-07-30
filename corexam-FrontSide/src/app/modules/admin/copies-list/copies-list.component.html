@@ -1,0 +1,91 @@
+
+<body>
+  
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Search" placeholder="Search">
+    </mat-form-field>
+  
+    
+  </form>
+
+  
+<mdb-card cascade="true" narrower="true">
+    <!--Card image-->
+    <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+  
+      <div>
+        
+       <h1 style="margin-left: 10px;">Class : 4SIM2 </h1>
+      </div>
+  
+      <a href="" class="white-text mx-3">Table name</a>
+  
+      <div>
+       
+        <button type="button" mdbBtn color="white" outline="true" rounded="true" size="sm" class="px-2" mdbWavesEffect>
+          <mdb-icon fas icon="times" class="mt-0"></mdb-icon>
+        </button>
+      
+      </div>
+  
+    </div>
+    <!--/Card image-->
+  
+    <div class="px-4">
+  
+      <div class="table-wrapper">
+        <!--Table-->
+        <table class="mb-0" mdbTable hover="true">
+  
+          <!--Table head-->
+          <thead>
+          <tr>
+            <th>
+            </th>
+            <th class="th-lg">
+              <a (click)="sortBy('first')">Assignment ID
+                <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+              </a>
+            </th>
+            <th class="th-lg">
+              <a (click)="sortBy('last')">Check Answersheet
+                <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                
+              </a>
+
+            </th>
+            <th class="th-lg">
+              <a (click)="sortBy('username')">Is Checked 
+                <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+              </a>
+            </th>
+            <th class="th-lg">
+              <a (click)="sortBy('email')">Marks
+                <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+              </a>
+            </th>
+          </tr>
+          </thead>
+          <!--Table head-->
+  
+          <!--Table body-->
+          <tbody>
+          <tr *ngFor="let row of tableData;let i = index">
+            <th scope="row">
+            </th>
+            <td>{{row.first}}</td>
+            <td><button (click)="redirectTo()" color="primary" mat-raised-button>Correct Copie</button></td>
+            <td>{{row.username}}</td>
+            <td>{{row.email}}</td>
+            <td>{{row.country}}</td>
+            <td>{{row.city}}</td>
+          </tr>
+          </tbody>
+          <!--Table body-->
+        </table>
+        <!--Table-->
+      </div>
+    </div>
+  </mdb-card>
+</body>  

@@ -1,0 +1,49 @@
+<div class="content"> 
+  <h1>My Created Exams </h1>
+
+ 
+    <div class=" card-deck">
+      <div  class="card"
+      *ngFor="let examen of examens; let i = index"
+      >
+        <h5 class="card-title text-center p-3 mb-2 bg-success text-white"> {{ examen.className }}
+        </h5>
+        <div class="card-body">
+          <p class="card-text">Subject : {{ examen.subject }}</p>
+          <p class="card-text">Date : {{ examen.date }}  --</p>
+          <p class="card-text">Questions Number:  {{ examen.questionNbr }} </p> 
+          <p class="card-text">Total Mark:  {{ examen.totalMark }}</p>
+      
+        </div>
+        <div>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Uploaded</th>
+              <th>Checked</th>
+              <th>Remaining</th>
+             
+            </tr>
+            <tr>
+            
+              <!-- <td>{{ .responses.length }}</td> Replace this with ResponsePDF from ExamenService.getAllResponses -->
+              <td>0</td>
+             <!-- <td>{{ examen.responsePDF.length }}</td> -->
+              
+            </tr>
+            
+          </tbody>
+          <tr>
+
+        <td>  <button  (click)="GoToResponses(examen)" type="button"  class="btn btn-success ">Check Papers</button></td>
+        <td>  <button  (click)="editExam(examen)" type="button"  class="btn btn-warning ">Edit</button></td>
+        <td>  <button  (click)="deleteExam(examen)" type="button"  class="btn btn-danger ">Delete</button></td>
+        </tr>
+          </table></div>
+        <div class="card-footer text-center">
+        </div>
+      </div>
+
+    </div>
+   
+  </div>

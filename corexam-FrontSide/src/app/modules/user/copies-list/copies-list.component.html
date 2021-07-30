@@ -1,0 +1,100 @@
+
+<body>
+  
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Search" placeholder="Search">
+    </mat-form-field>
+  
+    
+  </form>
+
+  
+<mdb-card cascade="true" narrower="true">
+    <!--Card image-->
+    <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+  
+      <div>
+        
+       <h1 style="margin-left: 10px;">Class : {{responses[0].className}} </h1>
+      </div>
+  
+      <a href="" class="white-text mx-3">Table name</a>
+  
+      <div>
+       
+        <button type="button" mdbBtn color="white" outline="true" rounded="true" size="sm" class="px-2" mdbWavesEffect>
+          <mdb-icon fas icon="times" class="mt-0"></mdb-icon>
+        </button>
+      
+      </div>
+  
+    </div>
+    <!--/Card image-->
+  
+    <div class="px-4">
+  
+      <div class="table-wrapper">
+        <!--Table-->
+        <table class="mb-0" mdbTable hover="true">
+  
+          <!--Table head-->
+          <thead>
+          <tr>
+            <th>
+            </th>
+            <th class="th-lg">
+              <a (click)="sortBy('first')">Assignment ID
+                <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+              </a>
+            </th>
+            <th class="th-lg">
+              <a (click)="sortBy('last')">Check Answersheet
+                <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                
+              </a>
+
+            </th>
+            <th class="th-lg">
+              <a (click)="sortBy('username')">Is Checked 
+                <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+              </a>
+            </th>
+            <th class="th-lg">
+              <a (click)="sortBy('email')">Student Copy
+                <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+              </a>
+            </th>
+            <th class="th-lg">
+              <a (click)="sortBy('email')">Student Mark
+                <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+              </a>
+            </th>
+          </tr>
+          </thead>
+          <!--Table head-->
+  
+          <!--Table body-->
+          <tbody>
+          <tr *ngFor="let row of responses;let i = index">
+            <th scope="row">
+            </th>
+            <td>{{row.studentName}}</td>
+            <td><button (click)="GoToPdfViewer(row)" color="primary" mat-raised-button>Correct Copie</button></td>
+            <div *ngIf="row.studentGrade!=0">
+              <td>Is Checked</td>  
+            </div>   
+            <div *ngIf="row.studentGrade==0">
+              <td>Not Checked</td>  
+            </div> 
+            <td>{{row.studentFile}}</td>
+            <td>{{row.studentGrade}}</td>
+          </tr>
+          </tbody>
+          <!--Table body-->
+        </table>
+        <!--Table-->
+      </div>
+    </div>
+  </mdb-card>
+</body>  

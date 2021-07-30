@@ -1,0 +1,67 @@
+<div>
+  <div *ngIf="currentExamen.id" class="edit-form">
+    <h4>Examen</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="currentExamen.subject"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentExamen.date"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label><strong>Questions Number</strong></label>
+      </div>
+
+      <div class="form-group">
+        <label><strong>Total Mark</strong></label>
+      </div>
+
+     
+    </form>
+
+    <button
+      class="badge badge-primary mr-2"
+      *ngIf="currentExamen"
+    >
+      
+    </button>
+    <button
+      *ngIf=""
+      class="badge badge-primary mr-2"
+    >
+      Publish
+    </button>
+
+    <button class="badge badge-danger mr-2" (click)="deleteExamen()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateExamen()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentExamen.id">
+    <br />
+    <p>Cannot access this Examen...</p>
+  </div>
+</div>

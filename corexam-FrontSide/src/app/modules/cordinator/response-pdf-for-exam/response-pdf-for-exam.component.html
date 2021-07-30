@@ -1,0 +1,30 @@
+
+
+
+<div class="form-group" *ngFor="let c of responsePDF; let i = index">
+     <input
+      type="text" 
+        class="form-control"
+        required
+        [(ngModel)]="responsePDF[i].studentName"
+        name="copiesNbr"
+        placeholder="Student Name{{ i + 1 }}:"
+        />
+
+        <app-upload-files (respdfChange)="resPdf($event,i)"  [pdfExamen]=false ></app-upload-files>
+        
+   
+
+
+        
+     </div>
+
+     <div class="form-group">
+      <select [(ngModel)]="user" >
+         <option *ngFor="let user of users" [ngValue]="user.username">{{user.username}}</option>
+
+    </select>
+  </div>
+  
+  <button (click)="saveExamen()" class="btn btn-success">Submit</button>
+   

@@ -1,0 +1,101 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by Subject"
+        [(ngModel)]="subject"
+      />
+   
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchTitle()"
+        >
+          Search
+        </button>
+      </div> 
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Examens List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let examen of examens; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveExamen(examen, i)"
+      >
+        {{ examen.subject }}
+      </li>
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" >
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentExamen">
+      <h4>Examen</h4>
+      <div>
+        <label><strong>Class Name :</strong></label> 
+        {{ currentExamen.className }}
+      </div>
+      <div>
+        <label><strong>Subject :</strong></label> 
+        {{ currentExamen.subject }}
+      </div>
+      <div>
+        <label><strong>Date :</strong></label>
+        {{ currentExamen.date }}
+      </div>
+      
+      <div>
+        <label><strong>Questions Number :</strong></label>
+        {{ currentExamen.questionNbr }}
+      </div>
+
+      <div>
+        <label><strong>Total Mark :</strong></label>
+        {{ currentExamen.totalMark }}
+      </div>
+
+      <div>
+        <label><strong>PDF File :</strong></label>
+        {{ currentExamen.pdfFile }}
+      </div>
+      <div>
+        <label><strong>ResponsePDF :</strong></label>
+        {{ currentExamen.responsePDF}}
+      </div>
+      <div>
+        <label><strong>CopiesNbr :</strong></label>
+        {{ currentExamen.copiesNbr }}
+      </div>
+      <div>
+        <label><strong>Corrector Username :</strong></label>
+        {{ currentExamen.correctorUsername }}
+      </div>
+
+      <div>
+        <label><strong>Questions :</strong></label>
+        {{ currentExamen.questions }}
+      </div>
+      
+      
+
+    
+
+      <a class="badge badge-warning" routerLink="/examens/{{ currentExamen.id }}">
+        Edit
+      </a>
+    </div>
+
+    <div *ngIf="!currentExamen">
+      <br />
+      <p>Please click on a Examen...</p>
+    </div>
+  </div>
+</div>
